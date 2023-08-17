@@ -270,7 +270,7 @@ export default function ListaConfiguracion() {
                 <TableBody>
                   {filteredRol.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
                     const { ID_Rol, Nombre_Rol, estado } = row;
-                    const selectedConfiguracionID = selected.indexOf(ID_Rol) !== -1;
+                    const selectedUser = selected.indexOf(ID_Rol) !== -1;
                     const estadoText = estado === 1 ? 'Activo' : 'Inactivo';
                     return (
                       <TableRow
@@ -278,11 +278,11 @@ export default function ListaConfiguracion() {
                         key={ID_Rol}
                         tabIndex={-1}
                         role="checkbox"
-                        selected={selected.indexOf(ID_Rol) !== -1}
+                        selected={selectedUser}
                       >
                         <TableCell padding="checkbox">
                           <Checkbox
-                            checked={selected.indexOf(ID_Rol) !== -1}
+                            checked={selectedUser}
                             onClick={(event) => handleClick(event, ID_Rol)}
                           />
                         </TableCell>

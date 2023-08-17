@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { Helmet } from 'react-helmet-async';
 import { filter } from 'lodash';
-import { sentenceCase } from 'change-case';
+// import { sentenceCase } from 'change-case';
 // import Swal from 'sweetalert2';
 
 import {
@@ -13,7 +13,7 @@ import {
     Paper,
     Avatar,
     TableRow,
-    MenuItem,
+    // MenuItem,
     TableBody,
     TableCell,
     Container,
@@ -30,14 +30,14 @@ import {
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
-import Iconify from '../components/iconify';
+// import Iconify from '../components/iconify';
 import Scrollbar from '../components/scrollbar';
-import Label from '../components/label';
+// import Label from '../components/label';
 import socket from '../socket/config'
 
 import { UserListToolbar } from '../sections/@dashboard/user';
-import { EditInsumo } from '../sections/@dashboard/supplies/modal/edit';
-import { VerInsumos } from '../sections/@dashboard/anchetas/modal/details';
+// import { EditInsumo } from '../sections/@dashboard/supplies/modal/edit';
+// import { VerInsumos } from '../sections/@dashboard/anchetas/modal/details';
 import OrderListHead from '../sections/@dashboard/pedidos/OrderListHead';
 
 const TABLE_HEAD = [
@@ -88,7 +88,7 @@ export default function AnchetasPage() {
 
     const [order, setOrder] = useState('desc');
 
-    const [selected, setSelected] = useState([]);
+    const [selected] = useState([]);
 
     const [orderBy, setOrderBy] = useState('ID_Pedido');
 
@@ -102,9 +102,9 @@ export default function AnchetasPage() {
 
     const [selectedAncheta, setSelectedAncheta] = useState(null);
 
-    const [totalPrecio, setTotalPrecio] = useState(0);
+    // const [totalPrecio, setTotalPrecio] = useState(0);
 
-    const [modalShow, setModalShow] = useState(false);
+    // const [modalShow, setModalShow] = useState(false);
 
 
 
@@ -137,6 +137,7 @@ export default function AnchetasPage() {
                 }));
             } catch (err) {
                 console.log(err);
+                console.log(selectedAncheta)
             }
         }
     };
@@ -205,7 +206,7 @@ export default function AnchetasPage() {
                                 />
                                 <TableBody>
                                     {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-                                        const { ID_Pedido, ID_Cliente, Nombre_Cliente, Direccion_Entrega, Fecha_Entrega, Precio_Total, correo, image } = row;
+                                        const { ID_Pedido, Nombre_Cliente, Direccion_Entrega, Fecha_Entrega, Precio_Total, correo, image } = row;
                                         const selectedUser = selected.indexOf(ID_Pedido) !== -1;
 
                                         return (

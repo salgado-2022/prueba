@@ -74,15 +74,15 @@ export default function DashboardAppPage() {
   const { pathname } = useLocation();
   const token = Cookies.get("token");
   const [nombre, setNombre] = useState(null);
-  const [rol, setRol] = useState(null);
+  // const [rol, setRol] = useState(null);
 
   useEffect(() => {
     if(token) {
       axios.get(`http://localhost:4000/api/search/${token}`)
       .then((res) =>{
-          const {Nombre, Nombre_Rol} = res.data[0]
+          const {Nombre} = res.data[0]
           setNombre(Nombre);
-          setRol(Nombre_Rol);
+          // setRol(Nombre_Rol);
       })
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

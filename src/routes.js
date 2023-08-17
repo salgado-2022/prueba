@@ -14,10 +14,10 @@ import AnchetasPage from './pages/AnchetaPage';
 import { AddAncheta } from './sections/@dashboard/anchetas/addAncheta';
 import { ConfiFormulario } from './sections/@dashboard/configuracion/modal/crearte';
 
-function checkTokenInCookies() {
-  const token = Cookies.get('token');
-  return Boolean(token);
-}
+// function checkTokenInCookies() {
+//   const token = Cookies.get('token');
+//   return Boolean(token);
+// }
 
 // function AuthGuard({ children }) {
 //   const isTokenValid = checkTokenInCookies();
